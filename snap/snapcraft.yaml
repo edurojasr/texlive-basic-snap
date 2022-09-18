@@ -1,0 +1,25 @@
+name: texlive-basic # you probably want to 'snapcraft register <name>'
+base: core20 # the base snap is the execution environment for this snap
+version: '0.0.1' # just for humans, typically '1.2+git' or '1.3.2'
+summary: testing for snapping texlive-basic schema # 79 char long summary
+description: |
+  testing snap for texlive-basic schema
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+parts:
+  texlive-small:
+    # See 'snapcraft plugins'
+    plugin: nil
+    build-packages:
+      - gzip
+      - perl-base
+      - wget
+    override-build: |
+      cd /tmp
+      wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+      zcat install-tl-unx.tar.gz | tar xf -
+      rm install-tl-unx.tar.gz
+      cd install-tl-*
+      perl ./install-tl --scheme=basic --texdir=$SNAPCRAFT_PART_INSTALL --no-interaction
