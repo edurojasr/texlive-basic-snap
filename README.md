@@ -5,6 +5,6 @@ Texlive basic scheme as a snap package
 
 ### After installing the snap
 
-PATH=/snap/texlive-basic/current/bin/x86_64-linux:$PATH; export PATH \n
-MANPATH=/snap/texlive-basic/current/texmf-dist/doc/man:$MANPATH; export MANPATH \n
-INFOPATH=/snap/texlive-basic/current/texmf-dist/doc/info:$INFOPATH; export INFOPATH \n
+* PATH=/snap/texlive-basic/current/bin/x86_64-linux:$PATH; export PATH
+* MANPATH=/snap/texlive-basic/current/texmf-dist/doc/man:$MANPATH; export MANPATH
+* INFOPATH=/snap/texlive-basic/current/texmf-dist/doc/info:$INFOPATH; export INFOPATH
