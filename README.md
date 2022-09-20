@@ -79,3 +79,12 @@ Typically the main binaries are not updated in TeX Live between major releases. 
 want to get updates for LuaTeX and other packages and programs that aren't officially
 released yet, they may be available in the TLContrib repository, or you may need to
 compile the sources yourself.
+
+## Work in progress
+
+Snap discussion [Snapcraft forum](https://forum.snapcraft.io/t/latex-snap/31621/16)
+
+## TODO
+
+[] Map TEXMFHOME
+[] Map TEXMLOCAL
