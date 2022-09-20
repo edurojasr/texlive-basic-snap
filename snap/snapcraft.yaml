@@ -9,17 +9,33 @@ grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: devmode # use 'strict' once you have the right plugs and slots
 
 parts:
+  local:
+    plugin: dump
+    source: snap/
+    source-type: local
+    stage: [local]
+
   texlive-small:
     # See 'snapcraft plugins'
+    source: .
     plugin: nil
     build-packages:
       - gzip
       - perl-base
       - wget
     override-build: |
+      # cp snap/local/export.sh $SNAPCRAFT_PART_INSTALL
+      # cp snap/local/envhook.sh $SNAPCRAFT_PART_INSTALL
+      # chmod +x $SNAPCRAFT_PART_INSTALL/export.sh
       cd /tmp
-      wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+      wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz --no-check-certificate
       zcat install-tl-unx.tar.gz | tar xf -
       rm install-tl-unx.tar.gz
       cd install-tl-*
       perl ./install-tl --scheme=basic --texdir=$SNAPCRAFT_PART_INSTALL --no-interaction
+
+apps:
+  texlive-basic:
+    command: local/export.sh
+    plugs:
+      - home
