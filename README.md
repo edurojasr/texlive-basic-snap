@@ -85,6 +85,8 @@ compile the sources yourself.
 Snap discussion [Snapcraft forum](https://forum.snapcraft.io/t/latex-snap/31621/16)
 
 ## TODO
-
-[] Map TEXMFHOME
-[] Map TEXMLOCAL
+Mapping
+- [ ] TEXMFLOCAL
+  - The tree which administrators can use for system-wide installation of additional or updated macros, fonts, etc.
+- [ ] TEXMFHOME
+  - The tree which users can use for their own individual installations of additional or updated macros, fonts, etc. For each user, this variable points to their own individual directory.
